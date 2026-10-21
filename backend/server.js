@@ -2,7 +2,15 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const studentRoutes = require('./routes/studentRoutes');
+const studentRoutes = require('./routes/studentRoutes');const express = require('express');
+const cors = require('cors'); // <-- Yeh add karein
+const app = express();
+
+app.use(cors()); // <-- Yeh line add karein (app initialization ke baad)
+app.use(express.json());
+
+// Baaki aapke routes yahan honge...
+
 
 const app = express();
 const port = process.env.PORT || 5000;
