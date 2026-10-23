@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { GraduationCap, Search, Plus, Users, Pencil, Trash2, X, RefreshCw, Mail, Building2, Hash, CheckCircle2, AlertCircle } from 'lucide-react';
 
-const API = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+const API = (
+  import.meta.env.VITE_API_URL ||
+  'https://student-management-system-cn4s.onrender.com'
+).replace(/\/+$/, '');
 const emptyForm = { studentId: '', name: '', email: '', department: '', semester: '1', contact: '' };
 
 export default function App() {
