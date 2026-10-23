@@ -1,0 +1,27 @@
+
+async function apiRequest(path, options = {}) {
+  
+const response = await fetch(url, {
+  signal: AbortSignal.timeout(15000),
+});
+
+
+  const text = await response.text();
+  let result;
+
+  try {
+    result = text ? JSON.parse(text) : {};
+  } catch {
+    result = { message: text };
+  }
+
+  if (!response.ok) {
+    throw new Error(
+      `API returned HTTP ${response.status}: ${
+        result.message || text || "Request failed"
+      }`
+    );
+  }
+
+  return result;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "student-management-system",
+  "version": "1.0.0",
+  "description": "A three-tier cloud project based on the supplied assignment: - **Frontend:** React + Vite (deploy to Netlify) - **Backend:** Node.js + Express REST API (deploy to Render) - **Database:** MongoDB Atlas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HiiAayush/student-management-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HiiAayush/student-management-system/issues"
+  },
+  "homepage": "https://github.com/HiiAayush/student-management-system#readme"
+}

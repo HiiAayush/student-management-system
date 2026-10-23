@@ -5,18 +5,21 @@ import { z } from "zod";
 
 const API_BASE_URL = (
   process.env.STUDENT_API_URL ||
-  "https://student-management-api-oxv2.onrender.com"
+  "https://student-management-frontend2.onrender.com"
 ).replace(/\/+$/, "");
 
 const server = new McpServer({
   name: "student-management",
-  version: "1.1.0",
+  version: "1.2.0",
 });
+
+const REQUEST_TIMEOUT_MS = 15000;
 
 // Helper: make API requests and return readable results.
 async function apiRequest(path, options = {}) {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     ...options,
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     headers: {
       "Content-Type": "application/json",
       ...options.headers,
@@ -55,11 +58,18 @@ function successResult(message, data) {
 }
 
 function errorResult(error) {
+  const message =
+    error?.name === "TimeoutError" || error?.name === "AbortError"
+      ? `Request timed out after ${REQUEST_TIMEOUT_MS / 1000} seconds. Check whether the backend is awake and reachable.`
+      : error?.message || String(error);
+
+  console.error("[student-management] API error:", message);
+
   return {
     content: [
       {
         type: "text",
-        text: `Error: ${error.message}`,
+        text: `Error: ${message}`,
       },
     ],
     isError: true,
@@ -72,15 +82,31 @@ server.tool(
   "Check whether the Student Management API and database are available.",
   {},
   async () => {
+    const url = `${API_BASE_URL}/health`;
+
     try {
-      const response = await fetch(`${API_BASE_URL}/health`);
+      console.error("[student-management] Health URL:", url);
+
+      const response = await fetch(url, {
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
+
       const result = await response.text();
+
+      console.error(
+        "[student-management] Health status:",
+        response.status
+      );
+      console.error(
+        "[student-management] Health response:",
+        result
+      );
 
       return {
         content: [
           {
             type: "text",
-            text: `HTTP ${response.status}\n${result}`,
+            text: `URL: ${url}\nHTTP ${response.status}\n${result}`,
           },
         ],
         isError: !response.ok,
@@ -91,8 +117,7 @@ server.tool(
   }
 );
 
-// 2. List students, optionally filtering by student ID, name,
-// email, or department.
+// 2. List students, optionally filtering by ID, name, email, or department.
 server.tool(
   "list_students",
   "List student records. Optionally search by student ID, name, email, or department.",
@@ -144,7 +169,7 @@ server.tool(
 // 4. Add a student.
 server.tool(
   "add_student",
-  "Add a student to the Student Management System. Required fields: studentId, name, email, department, and semester. Contact is optional.",
+  "Add a student. Required fields: studentId, name, email, department, semester. Contact is optional.",
   {
     studentId: z.string().trim().min(1).describe("Unique student identifier."),
     name: z.string().trim().min(1).describe("Student's full name."),
@@ -169,10 +194,10 @@ server.tool(
   }
 );
 
-// 5. Update a student. All fields except id are optional.
+// 5. Update a student using MongoDB document _id.
 server.tool(
   "update_student",
-  "Update an existing student using the MongoDB document ID (_id). Supply only the fields that need to change.",
+  "Update an existing student using MongoDB document ID (_id). Supply only the fields to change.",
   {
     id: z.string().min(1).describe(
       "The student's MongoDB _id returned by list_students."
@@ -220,7 +245,7 @@ server.tool(
 // 6. Delete a student. Explicit confirmation is mandatory.
 server.tool(
   "delete_student",
-  "Permanently delete a student using the MongoDB document ID (_id). Ask the user for explicit confirmation before calling this tool and set confirm to true only after confirmation.",
+  "Permanently delete a student using MongoDB document ID (_id). Obtain explicit user confirmation before setting confirm to true.",
   {
     id: z.string().min(1).describe(
       "The student's MongoDB _id returned by list_students."

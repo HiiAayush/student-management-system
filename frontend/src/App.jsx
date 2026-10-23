@@ -15,12 +15,15 @@ export default function App() {
   const [modal, setModal] = useState(false);
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState(null);
+
   const [error, setError] = useState('');
   const [apiStatus, setApiStatus] = useState('checking');
 
+  
   const notify = (type, message) => { setNotice({ type, message }); window.setTimeout(() => setNotice(null), 3500); };
   const loadStudents = useCallback(async (search = query) => {
     setBusy(true); setError('');
+    
     try {
       const response = await fetch(`${API}/api/students${search.trim() ? `?q=${encodeURIComponent(search.trim())}` : ''}`);
       const result = await response.json();
