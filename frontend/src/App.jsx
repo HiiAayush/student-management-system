@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { GraduationCap, LayoutDashboard, Users, Search, Plus, Pencil, Trash2, X, RefreshCw, Menu, ChevronLeft, ChevronRight, ChevronUp, ChevronDown, ChevronsUpDown, CheckCircle2, AlertCircle, Mail, Phone, Building2, Layers, UserPlus, TriangleAlert } from 'lucide-react';
+import { GraduationCap, LayoutDashboard, Users, Search, Plus, Pencil, Trash2, X, RefreshCw, Menu, ChevronLeft, ChevronRight, ChevronUp, ChevronDown, ChevronsUpDown, CheckCircle2, AlertCircle, Mail, Phone, Building2, Layers, UserPlus, TriangleAlert, Sun, Moon } from 'lucide-react';
 
 const API = (import.meta.env.VITE_API_URL || 'https://student-management-system-cn4s.onrender.com').replace(/\/+$/, '');
 const PAGE_SIZE = 8;
@@ -67,6 +67,8 @@ export default function App() {
   const [confirm, setConfirm] = useState(null);
   const [deleting, setDeleting] = useState(false);
   const toastTimer = useRef();
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
+  useEffect(() => { document.documentElement.dataset.theme = theme; try { localStorage.setItem('sh-theme', theme); } catch { /* storage unavailable */ } }, [theme]);
 
   const notify = useCallback((type, message) => { clearTimeout(toastTimer.current); setToast({ type, message }); toastTimer.current = setTimeout(() => setToast(null), 4000); }, []);
   const load = useCallback(async () => {
@@ -156,6 +158,7 @@ export default function App() {
         <button className="icon-btn menu-btn" onClick={() => setNavOpen(true)} aria-label="Open navigation"><Menu size={20} /></button>
         <div className="search-box"><Search size={18} /><input aria-label="Search students" placeholder="Search by name, ID, email, department…" value={query} onChange={e => onSearch(e.target.value)} />{query && <button onClick={() => setQuery('')} aria-label="Clear search"><X size={16} /></button>}</div>
         <button className="primary-btn top-add" onClick={openAdd}><Plus size={18} /><span>Add student</span></button>
+        <button className="icon-btn theme-btn" onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')} aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'} title={theme === 'dark' ? 'Light theme' : 'Dark theme'}>{theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}</button>
         <div className="profile"><div className="avatar" aria-hidden="true">AD</div><div className="profile-text"><strong>Admin</strong><span>StudentHub</span></div></div>
       </header>
 

@@ -39,6 +39,8 @@ h1{font-size:30px;letter-spacing:-.02em;margin:2px 0 4px}.page-heading p{color:v
 .primary-btn,.secondary-btn,.danger-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-weight:600;border:1px solid transparent;transition:transform .12s,box-shadow .15s,background .15s;white-space:nowrap}
 .primary-btn{color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 8px 18px rgba(79,70,229,.3)}
 .primary-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 12px 24px rgba(79,70,229,.38)}
+.top-add,.empty-state .primary-btn{background:linear-gradient(135deg,#ef4444,#dc2626);box-shadow:0 8px 18px rgba(220,38,38,.3)}
+.top-add:hover:not(:disabled),.empty-state .primary-btn:hover:not(:disabled){box-shadow:0 12px 24px rgba(220,38,38,.4)}
 .secondary-btn{background:var(--surface);border-color:var(--line)}.secondary-btn:hover{background:#f8fafc}
 .danger-btn{background:var(--danger);color:#fff}.danger-btn:hover:not(:disabled){background:#b91c1c}
 button:disabled{opacity:.6;cursor:not-allowed}
@@ -139,3 +141,30 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 0 8px}fo
   .row-actions-cell{padding-top:12px;border-top:1px solid var(--line)}.row-actions{width:100%;justify-content:flex-end}
   .pagination{flex-direction:column}.toast{left:16px;right:16px;bottom:16px}
 }
+
+/* ===== Dark theme (default) ===== */
+:root[data-theme="dark"]{--bg:#0a0e1a;--surface:#111729;--ink:#e8ebf7;--muted:#97a3b8;--line:#232c47;--brand-soft:rgba(129,140,248,.16);--shadow:0 1px 2px rgba(0,0,0,.4),0 12px 30px rgba(0,0,0,.35);color-scheme:dark}
+:root[data-theme="dark"] body{background:radial-gradient(1200px 600px at 80% -10%,rgba(99,102,241,.12),transparent 60%),var(--bg)}
+:root[data-theme="dark"] .topbar{background:rgba(10,14,26,.85)}
+:root[data-theme="dark"] .secondary-btn:hover,:root[data-theme="dark"] .recent li:hover,:root[data-theme="dark"] tbody tr:hover{background:#161d35}
+:root[data-theme="dark"] th{background:#0d1324}
+:root[data-theme="dark"] .stat-icon.indigo{background:rgba(129,140,248,.16);color:#a5b4fc}
+:root[data-theme="dark"] .stat-icon.sky{background:rgba(56,189,248,.14);color:#7dd3fc}
+:root[data-theme="dark"] .stat-icon.emerald{background:rgba(52,211,153,.14);color:#6ee7b7}
+:root[data-theme="dark"] .stat-icon.amber{background:rgba(251,191,36,.14);color:#fcd34d}
+:root[data-theme="dark"] .id-pill{background:#1b2340;color:#cbd5e1}
+:root[data-theme="dark"] .semester-pill{background:rgba(16,185,129,.15);color:#6ee7b7}
+:root[data-theme="dark"] .department{background:rgba(129,140,248,.16);color:#c7d2fe}
+:root[data-theme="dark"] .student-avatar{color:#c7d2fe}
+:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] .link-btn,:root[data-theme="dark"] th[aria-sort=ascending] .sort-btn,:root[data-theme="dark"] th[aria-sort=descending] .sort-btn,:root[data-theme="dark"] .icon-btn:hover:not(:disabled),:root[data-theme="dark"] .edit-action:hover{color:#a5b4fc}
+:root[data-theme="dark"] .icon-btn:hover:not(:disabled),:root[data-theme="dark"] .edit-action:hover{border-color:#6366f1}
+:root[data-theme="dark"] .delete-action:hover{background:rgba(239,68,68,.15);color:#fca5a5;border-color:#ef4444}
+:root[data-theme="dark"] .skeleton{background:linear-gradient(90deg,#171f38 25%,#1e2745 50%,#171f38 75%);background-size:200% 100%}
+:root[data-theme="dark"] .error-banner{background:rgba(239,68,68,.12);color:#fca5a5;border-color:rgba(239,68,68,.35)}
+:root[data-theme="dark"] .error-banner button{background:transparent;color:#fca5a5;border-color:rgba(239,68,68,.5)}
+:root[data-theme="dark"] .info-banner{background:rgba(129,140,248,.14);color:#c7d2fe;border-color:rgba(129,140,248,.35)}
+:root[data-theme="dark"] .confirm-icon{background:rgba(239,68,68,.15);color:#fca5a5}
+:root[data-theme="dark"] .modal{border:1px solid var(--line)}
+:root[data-theme="dark"] select option{background:#111729;color:#e8ebf7}
+:root[data-theme="dark"] .field input::placeholder,:root[data-theme="dark"] .search-box input::placeholder{color:#64748b}
+:root[data-theme="dark"] .toast.success{background:#047857}.theme-btn{flex:none}
