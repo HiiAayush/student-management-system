@@ -7,17 +7,17 @@ const studentRoutes = require('./routes/studentRoutes');
 const app = express();
 const port = process.env.PORT || 5000;
 
-const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173')
-  .split(',').map(origin => origin.trim()).filter(Boolean);
+// const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173')
+//   .split(',').map(origin => origin.trim()).filter(Boolean);
+
+const allowedOrigins = [
+  "https://student-management-system-6lju.vercel.app",
+  "https://student-management-system-6lju-on5pr8nv1-aayush-b1e4.vercel.app",
+  "https://student-management-system-6lju-git-main-aayush-b1e4.vercel.app"
+];
 
 app.use(cors({
-  origin(origin, callback) {
-    // Allow non-browser tools, localhost, and any render app
-    if (!origin || allowedOrigins.includes(origin) || origin.startsWith('http://localhost:') || origin.endsWith('.onrender.com')) {
-      return callback(null, true);
-    }
-    return callback(new Error('Origin not allowed by CORS'));
-  }
+  origin: allowedOrigins
 }));
 
 app.use(express.json({ limit: '100kb' }));
