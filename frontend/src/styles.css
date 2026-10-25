@@ -3,7 +3,7 @@
 body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
 button,input,select{font:inherit;color:inherit}button{cursor:pointer}
 h1,h2,h3,p{margin:0}
-:focus-visible{outline:3px solid rgba(79,70,229,.45);outline-offset:2px;border-radius:8px}
+:focus-visible{outline:3px solid rgba(79,70,229,.45);outline-offset:2px}
 .skip-link{position:absolute;left:-999px;top:8px;background:var(--brand);color:#fff;padding:8px 14px;border-radius:8px;z-index:100}.skip-link:focus{left:8px}
 .app-shell{min-height:100vh}
 /* sidebar */
@@ -168,3 +168,26 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 0 8px}fo
 :root[data-theme="dark"] select option{background:#111729;color:#e8ebf7}
 :root[data-theme="dark"] .field input::placeholder,:root[data-theme="dark"] .search-box input::placeholder{color:#64748b}
 :root[data-theme="dark"] .toast.success{background:#047857}.theme-btn{flex:none}
+
+
+/* ===== UI polish ===== */
+::selection{background:rgba(99,102,241,.28)}
+.link-btn,.sort-btn{border-radius:6px}
+h1,h2,h3{text-wrap:balance}
+.stat-card strong,.bar-num,.page-num,.result-count,.nav-count,.pagination{font-variant-numeric:tabular-nums}
+.student-cell>div:last-child{min-width:0}.student-cell span{min-width:0;overflow-wrap:anywhere}.student-cell span svg{flex:none}
+.icon-btn,.row-actions button,.nav-item{transition:color .15s,border-color .15s,background .15s}
+.primary-btn:active:not(:disabled),.secondary-btn:active:not(:disabled),.danger-btn:active:not(:disabled){transform:scale(.98)}
+.side-label{color:#8b98ad}
+.sidebar :focus-visible{outline-color:#a5b4fc}
+.modal{overscroll-behavior:contain}
+.table-wrap{scrollbar-width:thin}
+:root[data-theme="dark"] :focus-visible{outline-color:rgba(165,180,252,.75)}
+:root[data-theme="dark"] .field input::placeholder,:root[data-theme="dark"] .search-box input::placeholder{color:#7c8aa5}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:640px){
+  input,select{font-size:16px}
+  .row-actions button{width:40px;height:40px}
+  .modal{padding:20px}.modal-actions>button{flex:1}
+  .pagination{text-align:center}
+}
