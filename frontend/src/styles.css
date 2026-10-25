@@ -153,7 +153,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 0 8px}fo
 :root[data-theme="dark"] .primary-btn:hover:not(:disabled){box-shadow:0 12px 24px rgba(16,185,129,.35)}
 :root[data-theme="dark"] .top-add,:root[data-theme="dark"] .empty-state .primary-btn{box-shadow:0 8px 18px rgba(220,38,38,.3)}
 :root[data-theme="dark"] .top-add:hover:not(:disabled),:root[data-theme="dark"] .empty-state .primary-btn:hover:not(:disabled){box-shadow:0 12px 24px rgba(220,38,38,.4)}
-:root[data-theme="dark"] :focus-visible{outline-color:rgba(52,211,153,.65)}
+:root[data-theme="dark"] :focus-visible{outline-color:rgba(110,231,183,.85)}
 :root[data-theme="dark"] .search-box:focus-within,:root[data-theme="dark"] select:focus,:root[data-theme="dark"] .field input:focus{border-color:#10b981;box-shadow:0 0 0 4px rgba(16,185,129,.15)}
 :root[data-theme="dark"] .secondary-btn:hover,:root[data-theme="dark"] .recent li:hover,:root[data-theme="dark"] tbody tr:hover{background:#12231c}
 :root[data-theme="dark"] th{background:#0a1511}
@@ -176,5 +176,26 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 0 8px}fo
 :root[data-theme="dark"] .confirm-icon{background:rgba(239,68,68,.15);color:#fca5a5}
 :root[data-theme="dark"] .modal{border:1px solid var(--line)}
 :root[data-theme="dark"] select option{background:#0e1a15;color:#e7f5ee}
-:root[data-theme="dark"] .field input::placeholder,:root[data-theme="dark"] .search-box input::placeholder{color:#5f7a6c}
+:root[data-theme="dark"] .field input::placeholder,:root[data-theme="dark"] .search-box input::placeholder{color:#7f9a8b}
 :root[data-theme="dark"] .toast.success{background:#047857}.theme-btn{flex:none}
+
+/* ===== UI polish ===== */
+::selection{background:rgba(99,102,241,.28)}
+.link-btn,.sort-btn{border-radius:6px}
+h1,h2,h3{text-wrap:balance}
+.stat-card strong,.bar-num,.page-num,.result-count,.nav-count,.pagination{font-variant-numeric:tabular-nums}
+.student-cell>div:last-child{min-width:0}.student-cell span{min-width:0;overflow-wrap:anywhere}.student-cell span svg{flex:none}
+.icon-btn,.row-actions button,.nav-item{transition:color .15s,border-color .15s,background .15s}
+.primary-btn:active:not(:disabled),.secondary-btn:active:not(:disabled),.danger-btn:active:not(:disabled){transform:scale(.98)}
+.side-label{color:#8b98ad}
+.sidebar :focus-visible{outline-color:#a5b4fc}
+.modal{overscroll-behavior:contain}
+.table-wrap{scrollbar-width:thin}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:640px){
+  input,select{font-size:16px}
+  .row-actions button{width:40px;height:40px}
+  .modal{padding:20px}.modal-actions>button{flex:1}
+  .pagination{text-align:center}
+}
+:root[data-theme="dark"] ::selection{background:rgba(16,185,129,.3)}
