@@ -142,41 +142,43 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 0 8px}fo
   .pagination{flex-direction:column}.toast{left:16px;right:16px;bottom:16px}
 }
 
-/* ===== Dark theme (default, orange) ===== */
-:root[data-theme="dark"]{--bg:#0f0904;--surface:#1a110a;--ink:#fff4e8;--muted:#c2a58a;--line:#3a2614;--brand:#c2410c;--brand-2:#9a3412;--brand-soft:rgba(251,146,60,.16);--shadow:0 1px 2px rgba(0,0,0,.5),0 12px 30px rgba(10,4,0,.55);color-scheme:dark}
-:root[data-theme="dark"] body{background:radial-gradient(1200px 600px at 80% -10%,rgba(249,115,22,.13),transparent 60%),var(--bg)}
-:root[data-theme="dark"] .sidebar{background:linear-gradient(180deg,#0b0603,#1b0f06)}
-:root[data-theme="dark"] .topbar{background:rgba(15,9,4,.85)}
-:root[data-theme="dark"] .brand-icon{box-shadow:0 8px 20px rgba(249,115,22,.4)}
-:root[data-theme="dark"] .nav-item.active{background:linear-gradient(135deg,rgba(194,65,12,.95),rgba(154,52,18,.9));box-shadow:0 6px 18px rgba(249,115,22,.3)}
-:root[data-theme="dark"] .primary-btn{box-shadow:0 8px 18px rgba(249,115,22,.3)}
-:root[data-theme="dark"] .primary-btn:hover:not(:disabled){box-shadow:0 12px 24px rgba(249,115,22,.42)}
-:root[data-theme="dark"] .top-add,:root[data-theme="dark"] .empty-state .primary-btn{box-shadow:0 8px 18px rgba(220,38,38,.3)}
-:root[data-theme="dark"] .top-add:hover:not(:disabled),:root[data-theme="dark"] .empty-state .primary-btn:hover:not(:disabled){box-shadow:0 12px 24px rgba(220,38,38,.4)}
-:root[data-theme="dark"] :focus-visible{outline-color:rgba(253,186,116,.85)}
-:root[data-theme="dark"] .search-box:focus-within,:root[data-theme="dark"] select:focus,:root[data-theme="dark"] .field input:focus{border-color:#fb923c;box-shadow:0 0 0 4px rgba(251,146,60,.15)}
-:root[data-theme="dark"] .secondary-btn:hover,:root[data-theme="dark"] .recent li:hover,:root[data-theme="dark"] tbody tr:hover{background:#221509}
-:root[data-theme="dark"] th{background:#140c06}
-:root[data-theme="dark"] .bar-fill{background:linear-gradient(90deg,#fdba74,#f97316)}
-:root[data-theme="dark"] .stat-icon.indigo{background:rgba(251,146,60,.16);color:#fdba74}
-:root[data-theme="dark"] .stat-icon.sky{background:rgba(56,189,248,.14);color:#7dd3fc}
-:root[data-theme="dark"] .stat-icon.emerald{background:rgba(163,230,53,.13);color:#bef264}
-:root[data-theme="dark"] .stat-icon.amber{background:rgba(45,212,191,.14);color:#5eead4}
-:root[data-theme="dark"] .id-pill{background:#2a1a0d;color:#f1dcc7}
-:root[data-theme="dark"] .semester-pill{background:rgba(56,189,248,.14);color:#7dd3fc}
-:root[data-theme="dark"] .department{background:rgba(251,146,60,.16);color:#fed7aa}
-:root[data-theme="dark"] .student-avatar{color:#fed7aa}
-:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] .link-btn,:root[data-theme="dark"] th[aria-sort=ascending] .sort-btn,:root[data-theme="dark"] th[aria-sort=descending] .sort-btn,:root[data-theme="dark"] .icon-btn:hover:not(:disabled),:root[data-theme="dark"] .edit-action:hover{color:#fdba74}
-:root[data-theme="dark"] .icon-btn:hover:not(:disabled),:root[data-theme="dark"] .edit-action:hover{border-color:#fb923c}
-:root[data-theme="dark"] .delete-action:hover{background:rgba(239,68,68,.15);color:#fca5a5;border-color:#ef4444}
-:root[data-theme="dark"] .skeleton{background:linear-gradient(90deg,#231509 25%,#33200f 50%,#231509 75%);background-size:200% 100%}
-:root[data-theme="dark"] .error-banner{background:rgba(239,68,68,.12);color:#fca5a5;border-color:rgba(239,68,68,.35)}
-:root[data-theme="dark"] .error-banner button{background:transparent;color:#fca5a5;border-color:rgba(239,68,68,.5)}
-:root[data-theme="dark"] .info-banner{background:rgba(251,146,60,.12);color:#fed7aa;border-color:rgba(251,146,60,.35)}
-:root[data-theme="dark"] .confirm-icon{background:rgba(239,68,68,.15);color:#fca5a5}
-:root[data-theme="dark"] .modal{border:1px solid var(--line)}
-:root[data-theme="dark"] select option{background:#1a110a;color:#fff4e8}
-:root[data-theme="dark"] .field input::placeholder,:root[data-theme="dark"] .search-box input::placeholder{color:#a88b70}
+/* ===== Dark theme (default, neon) ===== */
+:root[data-theme="dark"]{--bg:#05050f;--surface:#0b0b1c;--ink:#f0f4ff;--muted:#9aa3c7;--line:#262650;--brand:#00e5ff;--brand-2:#ff2bd6;--brand-soft:rgba(0,229,255,.12);--shadow:0 0 0 1px rgba(0,229,255,.06),0 12px 30px rgba(0,0,0,.55);color-scheme:dark}
+:root[data-theme="dark"] body{background:radial-gradient(900px 500px at 85% -10%,rgba(0,229,255,.12),transparent 60%),radial-gradient(800px 500px at -10% 110%,rgba(255,43,214,.09),transparent 60%),var(--bg)}
+:root[data-theme="dark"] .sidebar{background:linear-gradient(180deg,#04040c,#0a0a1e);border-right:1px solid #1a1a3d}
+:root[data-theme="dark"] .topbar{background:rgba(5,5,15,.85)}
+:root[data-theme="dark"] .brand-icon,:root[data-theme="dark"] .avatar{background:linear-gradient(135deg,#00e5ff,#ff2bd6);color:#05050f}
+:root[data-theme="dark"] .brand-icon{box-shadow:0 0 22px rgba(0,229,255,.45)}
+:root[data-theme="dark"] .nav-item.active{background:rgba(0,229,255,.12);color:#67f3ff;box-shadow:inset 0 0 0 1px rgba(0,229,255,.5),0 0 18px rgba(0,229,255,.22)}
+:root[data-theme="dark"] .primary-btn{background:linear-gradient(135deg,#00e5ff,#ff2bd6);color:#05050f;box-shadow:0 0 18px rgba(0,229,255,.4)}
+:root[data-theme="dark"] .primary-btn:hover:not(:disabled){box-shadow:0 0 26px rgba(255,43,214,.5)}
+:root[data-theme="dark"] .top-add,:root[data-theme="dark"] .empty-state .primary-btn{background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;box-shadow:0 0 18px rgba(239,68,68,.4)}
+:root[data-theme="dark"] .top-add:hover:not(:disabled),:root[data-theme="dark"] .empty-state .primary-btn:hover:not(:disabled){box-shadow:0 0 26px rgba(239,68,68,.55)}
+:root[data-theme="dark"] .stat-card:hover{box-shadow:0 0 24px rgba(0,229,255,.18)}
+:root[data-theme="dark"] :focus-visible{outline-color:rgba(0,229,255,.9)}
+:root[data-theme="dark"] .search-box:focus-within,:root[data-theme="dark"] select:focus,:root[data-theme="dark"] .field input:focus{border-color:#00e5ff;box-shadow:0 0 0 4px rgba(0,229,255,.16),0 0 18px rgba(0,229,255,.2)}
+:root[data-theme="dark"] .secondary-btn:hover,:root[data-theme="dark"] .recent li:hover,:root[data-theme="dark"] tbody tr:hover{background:#11112a}
+:root[data-theme="dark"] th{background:#080818}
+:root[data-theme="dark"] .bar-fill{background:linear-gradient(90deg,#00e5ff,#ff2bd6);box-shadow:0 0 10px rgba(0,229,255,.5)}
+:root[data-theme="dark"] .stat-icon.indigo{background:rgba(0,229,255,.14);color:#5ef2ff}
+:root[data-theme="dark"] .stat-icon.sky{background:rgba(192,132,252,.16);color:#d8b4fe}
+:root[data-theme="dark"] .stat-icon.emerald{background:rgba(93,255,138,.13);color:#86ffa8}
+:root[data-theme="dark"] .stat-icon.amber{background:rgba(255,43,214,.14);color:#ff7ae9}
+:root[data-theme="dark"] .id-pill{background:#14142e;color:#cfd6ff}
+:root[data-theme="dark"] .semester-pill{background:rgba(93,255,138,.12);color:#86ffa8}
+:root[data-theme="dark"] .department{background:rgba(0,229,255,.12);color:#67f3ff}
+:root[data-theme="dark"] .student-avatar{color:#67f3ff}
+:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] .link-btn,:root[data-theme="dark"] th[aria-sort=ascending] .sort-btn,:root[data-theme="dark"] th[aria-sort=descending] .sort-btn,:root[data-theme="dark"] .icon-btn:hover:not(:disabled),:root[data-theme="dark"] .edit-action:hover{color:#5ef2ff}
+:root[data-theme="dark"] .icon-btn:hover:not(:disabled),:root[data-theme="dark"] .edit-action:hover{border-color:#00e5ff}
+:root[data-theme="dark"] .delete-action:hover{background:rgba(255,64,100,.15);color:#ff8fa3;border-color:#ff4064}
+:root[data-theme="dark"] .skeleton{background:linear-gradient(90deg,#10102a 25%,#1b1b40 50%,#10102a 75%);background-size:200% 100%}
+:root[data-theme="dark"] .error-banner{background:rgba(255,64,100,.12);color:#ff9fb0;border-color:rgba(255,64,100,.4)}
+:root[data-theme="dark"] .error-banner button{background:transparent;color:#ff9fb0;border-color:rgba(255,64,100,.55)}
+:root[data-theme="dark"] .info-banner{background:rgba(0,229,255,.1);color:#a5f3fc;border-color:rgba(0,229,255,.35)}
+:root[data-theme="dark"] .confirm-icon{background:rgba(255,64,100,.15);color:#ff8fa3}
+:root[data-theme="dark"] .modal{border:1px solid #2a2a5a;box-shadow:0 0 40px rgba(0,229,255,.12),0 30px 80px rgba(0,0,0,.6)}
+:root[data-theme="dark"] select option{background:#0b0b1c;color:#f0f4ff}
+:root[data-theme="dark"] .field input::placeholder,:root[data-theme="dark"] .search-box input::placeholder{color:#7f89b3}
 :root[data-theme="dark"] .toast.success{background:#047857}.theme-btn{flex:none}
 /* ===== UI polish ===== */
 ::selection{background:rgba(99,102,241,.28)}
@@ -197,4 +199,4 @@ h1,h2,h3{text-wrap:balance}
   .modal{padding:20px}.modal-actions>button{flex:1}
   .pagination{text-align:center}
 }
-:root[data-theme="dark"] ::selection{background:rgba(251,146,60,.35)}
+:root[data-theme="dark"] ::selection{background:rgba(255,43,214,.35)}
